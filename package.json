@@ -1,0 +1,55 @@
+{
+  "name": "probot-openwhisk-example",
+  "version": "1.0.0",
+  "description": "Probot Openhwisk Example",
+  "author": "",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/tripodsan/probot-openwhisk-example.git",
+  "homepage": "https://github.com/tripodsan/probot-openwhisk-example",
+  "bugs": "https://github.com/tripodsan/probot-openwhisk-example/issues",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app",
+    "openwhisk"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "probot run ./src/thanks_for_the_fish/index.js",
+    "lint": "./node_modules/.bin/eslint .",
+    "test": "eslint . && jest",
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage",
+    "build": "mkdir -p dist && jar cvMf dist/action.zip  package.json src index.js *.private-key.pem",
+    "deploy": "wsk action update github-app --docker tripodsan/probot-ow-nodejs8:latest --web raw -p GH_APP_ID 17488 -p GH_WEBHOOK_SECRET development dist/action.zip"
+  },
+  "dependencies": {
+    "probot-servleless-openwhisk": "file:../probot-servleless-openwhisk",
+    "probot": "^7.0.0"
+  },
+  "devDependencies": {
+    "ajv": "^6.5.3",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.2",
+    "smee-client": "^1.0.2",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-header": "^2.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0"
+  },
+  "engines": {
+    "node": ">= 8.3.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "nodemonConfig": {
+    "exec": "npm start",
+    "watch": [
+      ".env",
+      "."
+    ]
+  }
+}
