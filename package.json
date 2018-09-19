@@ -20,8 +20,8 @@
     "lint": "./node_modules/.bin/eslint .",
     "test": "eslint . && jest",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage",
-    "build": "mkdir -p dist && jar cvMf dist/action.zip  package.json src index.js *.private-key.pem",
-    "deploy": "wsk action update github-app --docker tripodsan/probot-ow-nodejs8:latest --web raw -p GH_APP_ID 17488 -p GH_WEBHOOK_SECRET development dist/action.zip"
+    "build": "npx wskbot",
+    "deploy": "wsk action update probot-openwhisk-example --docker tripodsan/probot-ow-nodejs8:latest --web raw dist/probot-openwhisk-example.zip"
   },
   "dependencies": {
     "probot-servleless-openwhisk": "^0.1.0",
