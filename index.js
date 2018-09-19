@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-const OpenWhiskWrapper = require('probot-servleless-openwhisk');
+const { OpenWhiskWrapper } = require('probot-servleless-openwhisk');
 const app = require('./src/thanks_for_the_fish.js');
 const docs = require('./src/views/doc.js');
 

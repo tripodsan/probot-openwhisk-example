@@ -24,7 +24,7 @@
     "deploy": "wsk action update github-app --docker tripodsan/probot-ow-nodejs8:latest --web raw -p GH_APP_ID 17488 -p GH_WEBHOOK_SECRET development dist/action.zip"
   },
   "dependencies": {
-    "probot-servleless-openwhisk": "file:../probot-servleless-openwhisk",
+    "probot-servleless-openwhisk": "^0.1.0",
     "probot": "^7.0.0"
   },
   "devDependencies": {
