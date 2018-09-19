@@ -24,7 +24,7 @@
     "deploy": "wsk action update probot-openwhisk-example --docker tripodsan/probot-ow-nodejs8:latest --web raw dist/probot-openwhisk-example.zip"
   },
   "dependencies": {
-    "probot-servleless-openwhisk": "^0.1.0",
+    "probot-serverless-openwhisk": "^0.2.0",
     "probot": "^7.0.0"
   },
   "devDependencies": {
