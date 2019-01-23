@@ -11,8 +11,8 @@
  */
 
 const { OpenWhiskWrapper } = require('probot-serverless-openwhisk');
-const app = require('./src/thanks_for_the_fish.js');
-const docs = require('./src/views/doc.js');
+const app = require('./thanks_for_the_fish.js');
+const docs = require('./views/doc.js');
 
 module.exports.main = new OpenWhiskWrapper()
   .withHandler(app)

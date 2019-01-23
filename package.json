@@ -13,19 +13,19 @@
     "probot-app",
     "openwhisk"
   ],
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "nodemon",
-    "start": "probot run ./src/thanks_for_the_fish/index.js",
+    "start": "probot run ./src/thanks_for_the_fish.js",
     "lint": "./node_modules/.bin/eslint .",
     "test": "eslint . && jest",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage",
-    "build": "npx wskbot",
-    "deploy": "wsk action update probot-openwhisk-example --docker tripodsan/probot-ow-nodejs8:latest --web raw dist/probot-openwhisk-example.zip"
+    "build": "./node_modules/.bin/wskbot",
+    "deploy": "./node_modules/.bin/wskbot --deploy"
   },
   "dependencies": {
     "probot": "^7.0.0",
-    "probot-serverless-openwhisk": "^0.2.0"
+    "probot-serverless-openwhisk": "0.13.0"
   },
   "devDependencies": {
     "ajv": "^6.5.3",
