@@ -21,23 +21,32 @@
     "test": "eslint . && jest",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage",
     "build": "./node_modules/.bin/wskbot",
-    "deploy": "./node_modules/.bin/wskbot --deploy"
+    "deploy": "./node_modules/.bin/wskbot --deploy --test"
+  },
+  "wsk": {
+    "params-file": [
+      "secrets/secrets.env"
+    ],
+    "static": [
+      "src/views/docs.hbs"
+    ],
+    "github-key": "secrets/github-app.private-key.pem"
   },
   "dependencies": {
-    "probot": "^7.0.0",
-    "probot-serverless-openwhisk": "0.13.0"
+    "probot": "^9.0.1",
+    "@adobe/probot-serverless-openwhisk": "0.14.1"
   },
   "devDependencies": {
-    "ajv": "^6.5.3",
-    "jest": "^22.4.3",
-    "nodemon": "^1.17.2",
-    "smee-client": "^1.0.2",
-    "eslint": "^5.4.0",
+    "ajv": "^6.10.0",
+    "eslint": "^5.15.2",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-header": "^2.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.0"
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^22.4.3",
+    "nodemon": "^1.18.10",
+    "smee-client": "^1.0.2"
   },
   "engines": {
     "node": ">= 8.3.0"

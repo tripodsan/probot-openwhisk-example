@@ -9,12 +9,14 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
-const { OpenWhiskWrapper } = require('probot-serverless-openwhisk');
+const { OpenWhiskWrapper, ViewsHelper, defaultsApp } = require('@adobe/probot-serverless-openwhisk');
 const app = require('./thanks_for_the_fish.js');
-const docs = require('./views/doc.js');
 
 module.exports.main = new OpenWhiskWrapper()
-  .withHandler(app)
-  .withRoute('/docs', docs)
+  .withViewsDirectory('./src/views')
+  .withApp(defaultsApp)
+  .withApp(app)
+  .withApp(new ViewsHelper()
+    .withView('/docs', 'docs.hbs')
+    .register())
   .create();

@@ -15,6 +15,7 @@
 const { Application } = require('probot');
 // Requiring our app implementation
 const myProbotApp = require('../src/thanks_for_the_fish.js');
+const { main } = require('../src/index.js');
 
 const issuesOpenedPayload = require('./fixtures/issues.opened.json');
 
@@ -52,7 +53,14 @@ describe('My Probot app', () => {
     // `context.github.issues.createComment`
     expect(github.issues.createComment).toHaveBeenCalled();
   });
-});
 
-// For more information about testing with Jest see:
-// https://facebook.github.io/jest/
+  test('Delivers docs view.', async () => {
+    // eslint-disable-next-line no-new
+    const result = await main({
+      __ow_method: 'get',
+      __ow_path: '/docs',
+    });
+
+    expect(result.statusCode).toBe(200);
+  });
+});

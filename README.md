@@ -2,7 +2,7 @@
 
 > A GitHub App built with [Probot](https://probot.github.io) that A Probot app
 
-This default probot example was extended using the [Probot OpenWhisk Wrapper](https://github.com/tripodsan/probot-serverless-openwhisk).
+This default probot example was extended using the [Probot OpenWhisk Wrapper](https://github.com/adobe/probot-serverless-openwhisk).
 
 ## Normal Probot Setup
 
